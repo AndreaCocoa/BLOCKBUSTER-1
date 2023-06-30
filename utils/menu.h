@@ -6,8 +6,39 @@
 #define BLOCKBUSTER_MENU_H
 
 #include <iostream>
+#include "clases/Empresa.h"
 
 using namespace std;
+
+void imprimir_empresa(string nombre_empresa, string direccion_empresa, string ruc_empresa){
+    cout<<"-----DATOS DE LA EMPRESA-----"<<endl;
+    cout<<"Nombre : "<< nombre_empresa <<endl;
+    cout<<"Direccion : "<< direccion_empresa <<endl;
+    cout<<"RUC : "<< ruc_empresa <<endl;
+}
+
+void registrar_empresa(){
+    string nombre_empresa;
+    string direccion_empresa;
+    string ruc_empresa;
+
+    cout<<"-----REGISTRAR EMPRESA-----"<<endl;
+    cout<<"Nombre empresa : ";
+    cin.ignore();
+    getline(cin, nombre_empresa);
+
+    cout<<"Direccion : ";
+    cin.ignore();
+    getline(cin, direccion_empresa);
+
+    cout<<"RUC : ";
+    cin.ignore();
+    getline(cin, ruc_empresa);
+
+    imprimir_empresa(nombre_empresa, direccion_empresa, ruc_empresa)
+
+    Empresa empresa(nombre_empresa, direccion_empresa, ruc_empresa);
+}
 
 int menu(){
     int opcion;
