@@ -72,6 +72,7 @@ public:
 
     // SETTERS
     void disminucionEjemplares() {
+        cout << "EJEMPLARES DISPONIBLES DISMINUIDOS EXITOSAMENTE!" << endl;
         ejemplares_disponibles--;
     }
 
@@ -82,6 +83,7 @@ public:
     void setRanking(int _ranking) {
         this -> ranking = _ranking;
     }
+
 
 
 };

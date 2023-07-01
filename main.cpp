@@ -8,8 +8,6 @@
 using namespace std;
 
 
-
-
 Usuario registrarUsuario(){
     string dni;
     string nombre_usuario;

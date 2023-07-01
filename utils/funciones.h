@@ -1,4 +1,3 @@
-
 #ifndef FUNCIONES_HEADER
 #define FUNCIONES_HEADER
 
@@ -123,7 +122,7 @@ void AlquilarPelicula(EmpresaX x) {
     string dni;
     string nombre_pelicula;
     int cantidad_dias;
-    int monto_final;
+    double monto_final;
 
     cout << "Ingrese su DNI: ";
     cin >> dni;
@@ -152,41 +151,41 @@ void AlquilarPelicula(EmpresaX x) {
     bool pelicula_encontrada = false;
 
     for (int i = 0; i < x.getListadoTodasPeliculasEmpresa().size(); i++) {
-      if(nombre_pelicula == x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula() and
-      x.getListadoTodasPeliculasEmpresa().at(i).getEjemplares_disponibles() > 0) {  //Verifico disponibilidad
-          // cout << "entro" << endl;
-         pelicula_encontrada = true;
+        if (nombre_pelicula == x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula() && x.getListadoTodasPeliculasEmpresa().at(i).getEjemplares_disponibles() > 0) {  //Verifico disponibilidad
+              // cout << "entro" << endl;
+             pelicula_encontrada = true;
 
-         Pelicula p(x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula(), x.getListadoTodasPeliculasEmpresa().at(i).getAnio_publicacion(),
-                    x.getListadoTodasPeliculasEmpresa().at(i).getEjemplares_disponibles(), x.getListadoTodasPeliculasEmpresa().at(i).getRanking());
-          cout << "Película disponible: "<< x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula() << endl;
-          cout << "Ingrese la cantidad de días de alquiler: ";
-          cin >> cantidad_dias;
+             Pelicula p(x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula(), x.getListadoTodasPeliculasEmpresa().at(i).getAnio_publicacion(),x.getListadoTodasPeliculasEmpresa().at(i).getEjemplares_disponibles(), x.getListadoTodasPeliculasEmpresa().at(i).getRanking());
+              cout << "Película disponible: "<< x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula() << endl;
+              cout << "Ingrese la cantidad de días de alquiler: ";
+              cin >> cantidad_dias;
 
-          // Calcular monto final según estrellas
-          if (x.getListadoTodasPeliculasEmpresa().at(i).getRanking() >= 3) {
-              monto_final = cantidad_dias * 5.4;
-          } else {
-              monto_final = cantidad_dias * 4.3;
-          }
-
-          // Actualizar cantidad_ejemplares
-          cout << "\nACA FALLA: " << x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula();
-          x.getListadoTodasPeliculasEmpresa().at(i).disminucionEjemplares();
-
-          // Agregar película a lista de películas del usuario:
-          for (int i = 0; i < x.getListadoUsuarios().size(); i ++) {
-              if (x.getListadoUsuarios().at(i).getDNI() == dni) {
-                  x.getListadoUsuarios().at(i).registrarPelicula(p);
+              // Calcular monto final según estrellas
+              if (x.getListadoTodasPeliculasEmpresa().at(i).getRanking() >= 3) {
+                  monto_final = cantidad_dias * 5.4;
+              } else {
+                  monto_final = cantidad_dias * 4.3;
               }
-          }
 
-          cout << "Monto de alquiler: " << monto_final << endl;
-          cout << "¡Alquiler realizado con éxito!" << endl;
-            }
+              // Actualizar cantidad_ejemplares
+              cout << "\nACA FALLA: " << x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula();
+              x.lista_todas_peliculas_empresa[i].disminucionEjemplares();
 
 
-      }
+              // Agregar película a lista de películas del usuario:
+              for (int k = 0; k < x.getListadoUsuarios().size(); k ++) {
+                  if (x.getListadoUsuarios().at(k).getDNI() == dni) {
+                      x.listado_usuarios[k].registrarPelicula(p);
+                      x.listado_usuarios[k].agregarPago(monto_final);
+                      // x.listado_usuarios[k].imprimirListadoPelicula();
+                  }
+              }
+
+              cout << "Monto de alquiler: " << monto_final << endl;
+              cout << "¡Alquiler realizado con éxito!" << endl;
+        }
+
+    }
 
     if(!pelicula_encontrada) cout << "Pelicula no encontrada." << endl;
 

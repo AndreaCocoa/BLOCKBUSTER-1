@@ -70,7 +70,7 @@ public:
 
     friend Pelicula RegistrarPelicula(EmpresaX *empresa);
     friend Pelicula BuscarPelicula(EmpresaX x, string nombre);
-   // friend AlquilarPelicula(EmpresaX *empresa);
+    friend void AlquilarPelicula(EmpresaX empresa);
 };
 
 

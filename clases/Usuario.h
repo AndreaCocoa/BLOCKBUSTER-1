@@ -17,6 +17,9 @@ private:
 
     vector<Pelicula>listado_peliculas;
 
+    // PARA CALCULOS FINALES:
+    vector <double> pagos;
+
 public:
     //sobrecarga de constructores
     Usuario(){};
@@ -46,6 +49,10 @@ public:
         listado_peliculas.push_back(p1);
     }
 
+    void agregarPago(double cantidad) {
+        pagos.push_back(cantidad);
+    }
+
     void imprimirListadoPelicula(){
         for(int i=0; i<listado_peliculas.size();i++){
             cout<< listado_peliculas.at(i).getNombre_pelicula()<<endl;
@@ -53,6 +60,13 @@ public:
             cout<< listado_peliculas.at(i).getAnio_publicacion()<<endl;
             cout<< listado_peliculas.at(i).getEjemplares_disponibles()<<endl;
         }
+    }
+
+    void imprimirPagos() {
+        for (int i = 0; i < pagos.size(); i++) {
+            cout << pagos[i] << " ";
+        }
+        cout << endl;
     }
 
     vector<Pelicula>getListadoPelicula(){
