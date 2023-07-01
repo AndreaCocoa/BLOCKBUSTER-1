@@ -42,5 +42,8 @@ void leerPelis(string nombre_archivo, vector <Pelicula> &lista_peliculas) {
 }
 
 void clear() {
-    cout << "\033[2J\033[0;0H";
+    char continuar;
+    cout << "Presione C para continuar...";
+    cin >> continuar;
+    if (continuar == 'C') cout << "\033[2J\033[0;0H";
 }

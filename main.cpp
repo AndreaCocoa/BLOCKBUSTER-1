@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cctype>
 
 #include "clases/Pelicula.h"
 #include "clases/EmpresaX.h"
@@ -7,6 +8,7 @@
 
 #include "utils/funciones.h"
 #include "utils/menu.h"
+// #include "utils/auxiliares.h"
 
 using namespace std;
 
@@ -74,7 +76,11 @@ Pelicula RegistrarPelicula(EmpresaX *empresa)
 
 int main()
 {
+    srand((unsigned int)time (NULL));
     EmpresaX empresa1 = registrar_empresa();
+
+    clear();
+
     vector<int> listaids;
     vector<int> listausuarios;
     int opcionsubmenu;
@@ -96,7 +102,7 @@ int main()
                 for (int j = 0; j < nro_peliculas_registradas; j++)
                 {
                     Pelicula *p = new Pelicula(RegistrarPelicula(&empresa1));
-                    p->generarID(empresa1.);
+                   // p->generarID(empresa1.getIdsGenerados());
                     cout << endl;
                     cout << "Imprimiendo pelicula registrada : " << endl;
                     cout << "Nombre de pelicula : " << p->getNombre_pelicula() << endl;
@@ -156,6 +162,8 @@ int main()
         default:
             break;
         }
+
+        clear();
 
     } while (opcion != 7);
     return 0;
