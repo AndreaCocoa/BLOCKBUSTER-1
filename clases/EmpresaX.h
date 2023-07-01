@@ -15,7 +15,10 @@ private:
     vector <Pelicula>lista_todas_peliculas_empresa;
 
     // Ganancias por películas YA DEVUELTAS
-    double ganancias_peliculas_devueltas;
+    double ganancia_peliculas_devueltas;
+
+    // Cantidad de peliculas que han sido alquiladas
+    int cant_peliculas_alquiladas;
 
 
 public:
@@ -73,8 +76,22 @@ public:
     }
 
     void mostrarDatos() {
-        cout << "----- REPORTE ------" << endl;
+        double ganancias_peliculas_alquiladas = 0;
 
+        cout << "----- REPORTE ------" << endl;
+        cout << "CANTIDAD DE PELICULAS ALQUILADAS: " << cant_peliculas_alquiladas << endl;
+        cout << "CANTIDAD DE PELICULAS DISPONIBLES: " << lista_todas_peliculas_empresa.size() - cant_peliculas_alquiladas << endl;
+        cout << "GANANCIAS POR PELICULAS DEVUELTAS: " << ganancia_peliculas_devueltas;
+
+        // Sumar todos los valores de todos los vectores pagos de todos los usuarios para obtener las ganancias por peliculas alquiladas.
+        for (int i = 0; i < listado_usuarios.size(); i++) {
+            for (int j = 0; j < listado_usuarios[i].getPagos().size(); j++) {
+                ganancias_peliculas_alquiladas += listado_usuarios[i].getPagos()[j];
+            }
+        }
+
+        cout << "GANANCIAS POR PELICULAS ALQUILADAS:" << ganancias_peliculas_alquiladas << endl;
+        cout << "GANANCIAS TOTALES: " << ganancias_peliculas_alquiladas + ganancia_peliculas_devueltas << endl;
     }
 
 

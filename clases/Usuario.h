@@ -45,6 +45,10 @@ public:
         return listado_peliculas.size();
     }
 
+    vector <double> getPagos() {
+        return this -> pagos;
+    };
+
     void registrarPelicula(Pelicula p1){
         listado_peliculas.push_back(p1);
     }

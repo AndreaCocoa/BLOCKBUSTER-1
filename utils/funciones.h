@@ -175,8 +175,7 @@ void AlquilarPelicula(EmpresaX x) {
               for (int k = 0; k < x.getListadoUsuarios().size(); k ++) {
                   if (x.getListadoUsuarios().at(k).getDNI() == dni) {
                       x.listado_usuarios[k].registrarPelicula(p);
-                      //x.listado_usuarios[k].agregarPago(monto_final);
-                      // x.listado_usuarios[k].imprimirListadoPelicula();
+                      x.listado_usuarios[k].agregarPago(monto_final);
                   }
               }
 
