@@ -152,5 +152,7 @@ int main() {
         }
 
     } while (opcion != 5); //7
+
+    delete empresa1;
     return 0;
 }

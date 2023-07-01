@@ -13,6 +13,11 @@ private:
     string RUC;
     vector <Usuario>listado_usuarios;
     vector <Pelicula>lista_todas_peliculas_empresa;
+
+    // Ganancias por películas YA DEVUELTAS
+    double ganancias_peliculas_devueltas;
+
+
 public:
     EmpresaX(){};
     EmpresaX(string nombre, string direccion, string RUC){
@@ -65,6 +70,11 @@ public:
             cout << endl;
             cout << listado_usuarios[i].getNombre() << " "<< listado_usuarios[i].getDNI() << endl;
         }
+    }
+
+    void mostrarDatos() {
+        cout << "----- REPORTE ------" << endl;
+
     }
 
 

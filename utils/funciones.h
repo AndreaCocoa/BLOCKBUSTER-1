@@ -168,7 +168,6 @@ void AlquilarPelicula(EmpresaX x) {
               }
 
               // Actualizar cantidad_ejemplares
-              cout << "\nACA FALLA: " << x.getListadoTodasPeliculasEmpresa().at(i).getNombre_pelicula();
               x.lista_todas_peliculas_empresa[i].disminucionEjemplares();
 
 
@@ -176,7 +175,7 @@ void AlquilarPelicula(EmpresaX x) {
               for (int k = 0; k < x.getListadoUsuarios().size(); k ++) {
                   if (x.getListadoUsuarios().at(k).getDNI() == dni) {
                       x.listado_usuarios[k].registrarPelicula(p);
-                      x.listado_usuarios[k].agregarPago(monto_final);
+                      //x.listado_usuarios[k].agregarPago(monto_final);
                       // x.listado_usuarios[k].imprimirListadoPelicula();
                   }
               }

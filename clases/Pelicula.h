@@ -74,6 +74,7 @@ public:
     void disminucionEjemplares() {
         cout << "EJEMPLARES DISPONIBLES DISMINUIDOS EXITOSAMENTE!" << endl;
         ejemplares_disponibles--;
+        cout << ejemplares_disponibles << endl;
     }
 
     void aumentoEjemplares() {
