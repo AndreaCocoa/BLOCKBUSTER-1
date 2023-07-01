@@ -20,7 +20,7 @@ public:
     //sobrecarga de constructores
 
     // Constructor vacio
-    //Pelicula();
+    Pelicula();
 
     //Cuando el usuario no coloca el ranking, por defecto ranking=5
     Pelicula(string nombre_pelicula, string anio_publicacion, int ejemplares_disponibles){
@@ -67,18 +67,16 @@ public:
     int getRanking(){
         return ranking;
     }
-
-
-
+    int getId() {
+        return ID;
+    }
     // SETTERS
     void disminucionEjemplares() {
-        cout << "EJEMPLARES DISPONIBLES DISMINUIDOS EXITOSAMENTE!" << endl;
         ejemplares_disponibles--;
-        cout << ejemplares_disponibles << endl;
     }
 
     void aumentoEjemplares() {
-        this ->ejemplares_disponibles++;
+        ejemplares_disponibles++;
     }
 
     void setRanking(int _ranking) {
