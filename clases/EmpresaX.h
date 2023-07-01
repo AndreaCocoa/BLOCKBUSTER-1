@@ -127,6 +127,7 @@ public:
     friend Pelicula RegistrarPelicula(EmpresaX *empresa);
     friend void AlquilarPelicula(EmpresaX *empresa);
     friend void DevolverPelicula(EmpresaX *x);
+    friend void leerPelis(string nombre_archivo, EmpresaX &x);
     //friend Pelicula BuscarPelicula(EmpresaX x, string nombre);
    // friend AlquilarPelicula(EmpresaX *empresa);
 };

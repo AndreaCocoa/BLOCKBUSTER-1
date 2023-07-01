@@ -9,7 +9,6 @@
 #include "utils/menu.h"
 // #include "utils/auxiliares.h"
 
-using namespace std;
 
 Usuario registrarUsuario()
 {
@@ -87,8 +86,11 @@ int main()
     Usuario usuario;
     int nro_peliculas_registradas;
     int opcion;
+
+    leerPelis("peliculas.txt", empresa1);
     //string hola = "THIS IS A SENTENCE";
     //cout << aMinusculas(hola);
+
     do
     {
         opcion = menu();

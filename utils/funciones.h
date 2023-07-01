@@ -9,7 +9,7 @@
 #include "../clases/Usuario.h"
 #include "../clases/Pelicula.h"
 
-void leerPelis(string nombre_archivo, vector <Pelicula> &lista_peliculas) {
+void leerPelis(string nombre_archivo, EmpresaX &x) {
 
     // crear objeto fstream
     fstream archivo(nombre_archivo, ios::in);
@@ -41,7 +41,7 @@ void leerPelis(string nombre_archivo, vector <Pelicula> &lista_peliculas) {
             int _ranking = stoi(linea.substr(indices[2]+1, indices[3]-indices[2]-1));
 
             // Agregar las peliculas al vector
-            lista_peliculas.push_back(Pelicula(_titulo, _anio, cant_ejemplares, _ranking));
+            x.lista_todas_peliculas_empresa.push_back(Pelicula(_titulo, _anio, cant_ejemplares, _ranking));
         }
 
     }
@@ -65,7 +65,6 @@ string aMinusculas (string texto) {
     return nuevo_texto;
 }
 
-using namespace std;
 void imprimir_empresa(string nombre_empresa, string direccion_empresa, string ruc_empresa)
 {
     cout << "-----DATOS DE LA EMPRESA-----" << endl;
@@ -82,16 +81,16 @@ EmpresaX registrar_empresa()
 
     cout << "-----REGISTRAR EMPRESA-----" << endl;
     cout << "Nombre empresa : ";
-    cin.ignore();
+    //cin.ignore();
     getline(cin, nombre_empresa);
-    nombre_empresa = aMinusculas(nombre_empresa);
+    nombre_empresa = nombre_empresa;
 
     cout << "Direccion : ";
-    cin.ignore();
+    //cin.ignore();
     getline(cin, direccion_empresa);
 
     cout << "RUC : ";
-    cin.ignore();
+    //cin.ignore();
     getline(cin, ruc_empresa);
 
     imprimir_empresa(nombre_empresa, direccion_empresa, ruc_empresa);
