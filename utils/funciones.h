@@ -57,6 +57,14 @@ void clear() {
     if (continuar == 'C') cout << "\033[2J\033[0;0H";
 }
 
+string aMinusculas (string texto) {
+    string nuevo_texto = "";
+    for (auto i:texto) {
+        nuevo_texto += tolower(i);
+    }
+    return nuevo_texto;
+}
+
 using namespace std;
 void imprimir_empresa(string nombre_empresa, string direccion_empresa, string ruc_empresa)
 {
@@ -76,6 +84,7 @@ EmpresaX registrar_empresa()
     cout << "Nombre empresa : ";
     cin.ignore();
     getline(cin, nombre_empresa);
+    nombre_empresa = aMinusculas(nombre_empresa);
 
     cout << "Direccion : ";
     cin.ignore();
@@ -102,6 +111,7 @@ void BuscarNombre(EmpresaX x)
     cout << "Ingrese nombre a buscar: ";
     cin.ignore();
     getline(cin, nombre);
+    nombre = aMinusculas(nombre);
 
     // x.imprimirListaTodasPeliculasEmpresa();
     for (int i = 0; i < x.getListadoTodasPeliculasEmpresa().size(); i++)
@@ -225,6 +235,7 @@ void AlquilarPelicula(EmpresaX *x)
     cout << "Ingrese el nombre de la película a alquilar: ";
     cin.ignore();
     getline(cin, nombre_pelicula);
+    nombre_pelicula = aMinusculas(nombre_pelicula);
     cout<<"Nombre pelicula alquilada :"<<nombre_pelicula<<endl;
 
     auto indicePelicula = 0;
@@ -400,6 +411,7 @@ void DevolverPelicula(EmpresaX *x) {
            cout << "Nombre: ";
             cin.ignore();
             getline(cin, nombre);
+            nombre = aMinusculas(nombre);
 
             indicePelicula = BuscarPelicula(x, nombre);
 

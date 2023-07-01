@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cctype>
 
 #include "clases/Pelicula.h"
 #include "clases/EmpresaX.h"
@@ -65,11 +64,11 @@ Pelicula RegistrarPelicula(EmpresaX *empresa)
         } while (ranking < 0 || ranking > 5);
 
         // hacer validacion
-        Pelicula pelicula(nombre_pelicula, anio_publicacion, ejemplares_disponibles, ranking);
+        Pelicula pelicula(aMinusculas(nombre_pelicula), anio_publicacion, ejemplares_disponibles, ranking);
         empresa->lista_todas_peliculas_empresa.push_back(pelicula);
         return pelicula;
     }
-    Pelicula pelicula(nombre_pelicula, anio_publicacion, ejemplares_disponibles);
+    Pelicula pelicula(aMinusculas(nombre_pelicula), anio_publicacion, ejemplares_disponibles);
     empresa->lista_todas_peliculas_empresa.push_back(pelicula);
     return pelicula;
 }
@@ -88,6 +87,8 @@ int main()
     Usuario usuario;
     int nro_peliculas_registradas;
     int opcion;
+    //string hola = "THIS IS A SENTENCE";
+    //cout << aMinusculas(hola);
     do
     {
         opcion = menu();

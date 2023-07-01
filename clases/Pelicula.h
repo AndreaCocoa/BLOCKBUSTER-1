@@ -2,7 +2,7 @@
 #define BLOCKBUSTER_PELICULA_H
 
 #include <iostream>
-#include "vector"
+#include <vector>
 #include <iomanip>
 
 using namespace std;
